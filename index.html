@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="am">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -11,17 +10,22 @@
   <!-- Google Fonts: Plus Jakarta Sans & Noto Sans Ethiopic -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/styles.css">
 </head>
-
 <body>
 
   <!-- Floating Falling Petals Background Canvas -->
   <canvas id="petals-canvas"></canvas>
+
+  <!-- =========================================================================
+       BACKGROUND ABEBAYEHOSH AUDIO PLAYER (Habesha Kids: 6Bgp6YOuCDc)
+       ========================================================================= -->
+  <div id="yt-player-wrap" style="position: fixed; top: -9999px; left: -9999px; width: 1px; height: 1px; opacity: 0.001; pointer-events: none;">
+    <div id="youtube-audio-player"></div>
+  </div>
+  <audio id="localAbebayehoshAudio" src="assets/abebayehosh.mp3" preload="auto" loop></audio>
 
   <!-- =========================================================================
        1. SPLASH SCREEN: ADEY ABEBA BLOOMING ANIMATION
@@ -73,8 +77,7 @@
         </g>
 
         <!-- Flower Disk Floret Center -->
-        <circle class="flower-center" cx="100" cy="100" r="22" fill="url(#centerGlow)" stroke="#FFD54F"
-          stroke-width="2" />
+        <circle class="flower-center" cx="100" cy="100" r="22" fill="url(#centerGlow)" stroke="#FFD54F" stroke-width="2" />
         <circle cx="95" cy="94" r="2" fill="#FFE082" />
         <circle cx="105" cy="96" r="2" fill="#FFE082" />
         <circle cx="100" cy="106" r="2.5" fill="#FFCA28" />
@@ -128,16 +131,14 @@
 
       <h1 class="hero-heading">መልካም አዲስ ዓመት!</h1>
       <p class="hero-tagline">
-        ዘመኑ የሰላም፣ የፍቅር፣ የጤና እና የበረከት ይሁንልን! ልጆች በየደጃፉ ዞረው "አበባየሆሽ" እያሉ የሳሉትን ልዩ የአደይ አበባ ስዕል ለእርስዎ አዘጋጅተናል። የአዲስ ዓመት
-        ስጦታዎን አሁኑኑ ይቀበሉ!
+        ዘመኑ የሰላም፣ የፍቅር፣ የጤና እና የበረከት ይሁንልን! ልጆች በየደጃፉ ዞረው "አበባየሆሽ" እያሉ የሳሉትን ልዩ የአደይ አበባ ስዕል ለእርስዎ አዘጋጅተናል። የአዲስ ዓመት ስጦታዎን አሁኑኑ ይቀበሉ!
       </p>
 
       <!-- Painting Showcase Card -->
       <div class="painting-card-container">
         <div class="painting-card">
           <div class="painting-frame">
-            <img src="assets/adey_abeba_painting.jpg" alt="የአደይ አበባ የአዲስ ዓመት ስዕል" class="painting-img"
-              id="heroPaintingImg">
+            <img src="assets/adey_abeba_painting.jpg" alt="የአደይ አበባ የአዲስ ዓመት ስዕል" class="painting-img" id="heroPaintingImg">
             <span class="painting-badge">🎨 ልዩ እትም</span>
           </div>
 
@@ -213,8 +214,7 @@
 
         <!-- Custom Amount -->
         <div class="custom-amount-wrap">
-          <input type="text" id="customAmountInput" class="custom-amount-input" placeholder="ወይም የፈለጉትን መጠን ይፃፉ..."
-            maxlength="6" inputmode="numeric">
+          <input type="text" id="customAmountInput" class="custom-amount-input" placeholder="ወይም የፈለጉትን መጠን ይፃፉ..." maxlength="6" inputmode="numeric">
           <span class="custom-amount-unit">ETB</span>
         </div>
 
@@ -251,8 +251,7 @@
           <div class="merchant-row">
             <span class="merchant-label">የቴሌብር ቁጥር:</span>
             <div class="merchant-val">
-              <span id="merchantAccountVal"
-                style="color: #FFE066; font-size: 1.15rem; letter-spacing: 0.5px;">0933894394</span>
+              <span id="merchantAccountVal" style="color: #FFE066; font-size: 1.15rem; letter-spacing: 0.5px;">0933894394</span>
               <button type="button" class="copy-pill-btn" id="copyAccountBtn">
                 <span>📋</span>
                 <span>ኮፒ</span>
@@ -261,8 +260,7 @@
           </div>
           <div class="merchant-row">
             <span class="merchant-label">የሚላከው መጠን:</span>
-            <span class="merchant-val" id="merchantAmountVal" style="color: #34D399; font-size: 1.15rem;">100.00
-              ETB</span>
+            <span class="merchant-val" id="merchantAmountVal" style="color: #34D399; font-size: 1.15rem;">100.00 ETB</span>
           </div>
         </div>
 
@@ -275,8 +273,7 @@
         <!-- Transaction Number Input -->
         <div class="input-group">
           <label class="input-label" for="txnInput">ከቴሌብር ኤስኤምኤስ (SMS) የግብይት ቁጥር ያስገቡ:</label>
-          <input type="text" id="txnInput" class="txn-input" placeholder="e.g. DET8FJGUJ4" maxlength="32"
-            autocomplete="off" spellcheck="false">
+          <input type="text" id="txnInput" class="txn-input" placeholder="e.g. DET8FJGUJ4" maxlength="32" autocomplete="off" spellcheck="false">
           <span class="txn-hint">ከቴሌብር የተላከልዎትን የግብይት ማረጋገጫ ኮድ እዚህ ይለጥፉ (ለምሳሌ DET8FJGUJ4)</span>
         </div>
 
@@ -312,10 +309,9 @@
         <div class="prank-joke-box">
           <p class="prank-joke-text">
             🌼 <strong>አበባየሆሽ... በአዲስ ዓመት ተሸወድክ!</strong><br>
-            ብልጡ ልጅ በስዕል ስም ኪስህን አራቆተህ! ስዕል ፍለጋ አትድከም፣ ለልጆች የበዓል ስጦታ እንደሰጠህ ቁጠረው! 😂
+            ብልጡ የሰፈር ልጅ በስዕል ስም ኪስህን አራቆተህ! ስዕል ፍለጋ አትድከም፣ ለልጆች የበዓል ስጦታ እንደሰጠህ ቁጠረው! 😂
           </p>
-          <div
-            style="margin-top: 0.85rem; padding-top: 0.65rem; border-top: 1px dashed rgba(255, 200, 0, 0.3); font-size: 0.82rem; color: #FFD54F;">
+          <div style="margin-top: 0.85rem; padding-top: 0.65rem; border-top: 1px dashed rgba(255, 200, 0, 0.3); font-size: 0.82rem; color: #FFD54F;">
             <span>የግብይት ቁጥር: </span><strong id="prankTxnCode">DET8FJGUJ4</strong> |
             <span>የተላከው: </span><strong id="prankAmount">100 ETB</strong> (Telebirr)
           </div>
@@ -338,13 +334,10 @@
             <p style="font-size: 0.85rem; color: #FFC400; margin-bottom: 0.85rem;">
               በዓሉ የደስታ ይሁንልዎ! ይሄው እውነተኛው ከፍተኛ ጥራት ያለው የዲጂታል አደይ አበባ ስዕልዎ:
             </p>
-            <div
-              style="border-radius: 12px; overflow: hidden; border: 2px solid #FFC400; max-width: 320px; margin: 0 auto 1rem auto;">
-              <img src="assets/adey_abeba_painting.jpg" alt="Real Adey Abeba Painting"
-                style="width: 100%; display: block;">
+            <div style="border-radius: 12px; overflow: hidden; border: 2px solid #FFC400; max-width: 320px; margin: 0 auto 1rem auto;">
+              <img src="assets/adey_abeba_painting.jpg" alt="Real Adey Abeba Painting" style="width: 100%; display: block;">
             </div>
-            <a href="assets/adey_abeba_painting.jpg" download="Adey_Abeba_Melkam_Addis_Amet_2018.jpg"
-              class="btn-secondary" style="display: inline-block; text-decoration: none; padding: 0.6rem 1.25rem;">
+            <a href="assets/adey_abeba_painting.jpg" download="Adey_Abeba_Melkam_Addis_Amet_2018.jpg" class="btn-secondary" style="display: inline-block; text-decoration: none; padding: 0.6rem 1.25rem;">
               ⬇️ ስዕሉን ወደ ስልክህ አውርድ (Save Image)
             </a>
           </div>
@@ -365,5 +358,4 @@
   <script src="js/petals.js"></script>
   <script src="js/app.js"></script>
 </body>
-
 </html>
